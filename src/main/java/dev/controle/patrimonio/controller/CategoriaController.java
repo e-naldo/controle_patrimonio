@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.net.URI;
+import java.util.List;
 
 @RestController
 @RequestMapping("api/v1/categorias")
@@ -48,5 +49,12 @@ public class CategoriaController {
         Categoria categoria = service.buscarPorId(id);
 
         return ResponseEntity.ok(mapper.paraDto(categoria));
+    }
+
+    @GetMapping
+    public ResponseEntity<List<CategoriaDetalhesDto>> buscarTodos(){
+        List<Categoria> categorias = service.buscarTodos();
+
+        return ResponseEntity.ok(mapper.toListDto(categorias));
     }
 }
