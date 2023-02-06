@@ -17,7 +17,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 import java.net.URI;
 
 @RestController
-@RequestMapping("api/vi/categorias")
+@RequestMapping("api/v1/categorias")
 public class CategoriaController {
 
     @Autowired
