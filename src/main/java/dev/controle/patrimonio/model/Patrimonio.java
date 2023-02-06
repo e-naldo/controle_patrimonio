@@ -9,6 +9,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Getter
@@ -38,8 +39,10 @@ public class Patrimonio extends EntidadeBase {
     @JoinColumn(name = "status_id")
     private Status status;
 
+    private BigDecimal valor;
+
     @Column(name = "numero_serie")
-    private String nuemroSerie;
+    private String numeroSerie;
 
     @Column(name = "data_fabricacao")
     private LocalDate dataFabricacao;
@@ -48,7 +51,7 @@ public class Patrimonio extends EntidadeBase {
     private LocalDate dataCompra;
 
     @Column(name = "nota_fiscal")
-    private String notaFiscal;
+    private Integer notaFiscal;
 
     @Column(name = "data_fim_garantia")
     private LocalDate dataFimGarantia;
