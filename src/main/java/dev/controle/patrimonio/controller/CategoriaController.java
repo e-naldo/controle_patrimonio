@@ -26,7 +26,7 @@ public class CategoriaController {
     private CategoriaMapper mapper;
 
     @PostMapping
-    public ResponseEntity<CategoriaDetalhesDto> cadastrar(@RequestBody @Valid CategoriaCadastroDto dto){
+    public ResponseEntity<CategoriaDetalhesDto> cadastrar(@RequestBody @Valid CategoriaCadastroDto dto) {
         Categoria categoria = service.cadastrar(mapper.paraEntidade(dto));
 
         UriComponentsBuilder builder = UriComponentsBuilder.newInstance();
@@ -36,7 +36,7 @@ public class CategoriaController {
     }
 
     @PutMapping
-    public ResponseEntity<CategoriaDetalhesDto> atualizar(@RequestBody @Valid CategoriaAtualizacaoDto dto){
+    public ResponseEntity<CategoriaDetalhesDto> atualizar(@RequestBody @Valid CategoriaAtualizacaoDto dto) {
         Categoria categoria1 = mapper.paraEntidade(dto);
 
         Categoria categoria = service.atualizar(categoria1);
@@ -45,16 +45,23 @@ public class CategoriaController {
     }
 
     @GetMapping("{id}")
-    public ResponseEntity<CategoriaDetalhesDto> buscarPorId(@PathVariable Long id){
+    public ResponseEntity<CategoriaDetalhesDto> buscarPorId(@PathVariable Long id) {
         Categoria categoria = service.buscarPorId(id);
 
         return ResponseEntity.ok(mapper.paraDto(categoria));
     }
 
     @GetMapping
-    public ResponseEntity<List<CategoriaDetalhesDto>> buscarTodos(){
+    public ResponseEntity<List<CategoriaDetalhesDto>> buscarTodos() {
         List<Categoria> categorias = service.buscarTodos();
 
         return ResponseEntity.ok(mapper.toListDto(categorias));
+    }
+
+    @DeleteMapping("{id}")
+    public ResponseEntity<?> excluirPorId(@PathVariable Long id) {
+        service.excluirPorId(id);
+
+        return ResponseEntity.noContent().build();
     }
 }
