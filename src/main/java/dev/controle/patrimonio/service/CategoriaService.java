@@ -25,7 +25,7 @@ public class CategoriaService implements GenericService<Categoria>{
                 .orElseThrow(EntityNotFoundException::new);
 
         categoriaAtual.setNome(categoria.getNome());
-        repository.save(categoria);
+        repository.save(categoriaAtual);
 
         return categoriaAtual;
     }

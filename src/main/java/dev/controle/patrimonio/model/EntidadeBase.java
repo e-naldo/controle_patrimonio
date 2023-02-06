@@ -18,6 +18,13 @@ public class EntidadeBase {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    public EntidadeBase() {
+    }
+
+    public EntidadeBase(Long id) {
+        this.id = id;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

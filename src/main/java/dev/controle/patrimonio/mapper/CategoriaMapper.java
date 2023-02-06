@@ -1,6 +1,6 @@
 package dev.controle.patrimonio.mapper;
 
-import dev.controle.patrimonio.dto.CategoriaAlteracaoDto;
+import dev.controle.patrimonio.dto.CategoriaAtualizacaoDto;
 import dev.controle.patrimonio.dto.CategoriaCadastroDto;
 import dev.controle.patrimonio.dto.CategoriaDetalhesDto;
 import dev.controle.patrimonio.model.Categoria;
@@ -12,11 +12,11 @@ import java.util.stream.Collectors;
 @Component
 public class CategoriaMapper {
 
-    public Categoria paraEmtidade(CategoriaCadastroDto dto){
+    public Categoria paraEntidade(CategoriaCadastroDto dto){
         return new Categoria(dto.nome());
     }
 
-    public Categoria paraEntidade(CategoriaAlteracaoDto dto){
+    public Categoria paraEntidade(CategoriaAtualizacaoDto dto){
         return new Categoria(dto.id(), dto.nome());
     }
 
